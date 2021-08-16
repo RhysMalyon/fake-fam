@@ -37,20 +37,18 @@ puts "Creating users..."
 end
 
 puts "Created Users and Roles... now creating bookings..."
+roles = Role.all
 
 User.find_each do |u|
-  Role.find_each do |r|
-    Booking.create!(
-      start_time: Faker::Time.forward(days: 23, period: :morning, format: :short),
-      end_time: Faker::Time.forward(days: 23, period: :evening, format: :short),
-      location: Faker::Address.city,
-      category: "Lorem ipsum dolor",
-      status: rand(0..2),
-      user: u,
-      role: r
-    )
-  end
+  Booking.create!(
+    start_time: Faker::Time.forward(days: 23, period: :morning, format: :short),
+    end_time: Faker::Time.forward(days: 23, period: :evening, format: :short),
+    location: Faker::Address.city,
+    category: "Lorem ipsum dolor",
+    status: rand(0..2),
+    user: u,
+    role: roles.sample
+  )
 end
-
 
 puts "Created #{Role.count} roles, #{User.count} users, and #{Booking.count} bookings."
