@@ -7,11 +7,12 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .sticky {
 	position: sticky;
 	top: 0;
+  z-index: 1000;
+}
+
+.white-color {
+  color: aliceblue;
 }
