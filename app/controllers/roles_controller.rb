@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: :show
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     # @roles = Role.all
@@ -13,14 +13,14 @@ class RolesController < ApplicationController
 
   def show
     @role = policy_scope(Role)
-    @user = User.new
+    @user = User.where(role: @role)
     authorize @role
   end
 
   private
 
   def role_params
-    params.require(:role).permit(:role, :price, :bio)
+    params.require(:role).permit(:name, :price, :bio)
   end
 
   def set_role
