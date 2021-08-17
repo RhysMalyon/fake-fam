@@ -1,16 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=image_path "family-banner.jpg"%>);">
   <div class="container">
     <h1>I need a...</h1>
-    <a class="btn btn-warning" href="#">Sign up</a>
   </div>
 </div>
 <div class="container mt-3">
-  <% @roles.each do |role| %>
-    <%= link_to roles_path do%>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-        <%= role.name %>
-      </div>
+  <div class="cards">
+    <% @roles.each do |role| %>
+      <%= link_to roles_path do%>
+        <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path role%>)">
+          <%= role %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 </div>
