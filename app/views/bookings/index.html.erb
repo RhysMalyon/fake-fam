@@ -1,0 +1,17 @@
+<h1 class="text-center mt-3">Your bookings</h1>
+<h2 class="text-center mt-3">Upcoming bookings</h2>
+<div class="container d-flex justify-content-center">
+  <div class="cards mt-2">
+    <% @bookings.order(start_time: "ASC").each do |booking| %>
+      <%= render 'bookings/card', booking: booking %>
+    <% end %>
+  </div>
+</div>
+<h2 class="text-center mt-3">Past bookings</h2>
+<div class="container d-flex justify-content-center">
+  <div class="cards mt-2">
+    <% @bookings.each do |booking| %>
+      <%= render 'bookings/card', booking: booking %>
+    <% end %>
+  </div>
+</div>
