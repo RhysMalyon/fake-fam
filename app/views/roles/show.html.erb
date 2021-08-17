@@ -1,9 +1,13 @@
 <div class="container">
   <div class="cards mt-4 mx-4">
-    <div class="card-category d-flex flex-column" >
     <h1><%= @user %></h1>
-      <div class="user-image mt-4">
-        <%= image_tag("placeholder-profile.png", size: "360x360") %>
+    <div class="user-container my-4" >
+      <div class="user-image">
+        <%= image_tag("placeholder-profile.png") %>
+      </div>
+      <div class="user-bio mx-3">
+        <small>About Me</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque explicabo corporis cumque repellendus. Neque velit, officia fugiat labore et rem!</p>
       </div>
     </div>
   </div>
