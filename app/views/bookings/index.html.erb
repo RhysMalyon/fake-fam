@@ -2,7 +2,7 @@
 <h1 class="text-center mt-3">Your bookings</h1>
   <div class="d-flex justify-content-center">
     <% %w[upcoming past].each do |group_name| %>
-      <div class="cards mt-2">
+      <div class="bookings-cards mt-2">
       <h2 class="text-center mt-3"><%= group_name.capitalize %> bookings</h2>
         <% @grouped_bookings[group_name].each do |booking| %>
         <div class="card-product mt-3">
