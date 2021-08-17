@@ -4,21 +4,16 @@
   background: white;
   box-shadow: 0 0 15px rgba(248, 237, 237, 0.2);
   border-radius: 5px;
-  // margin: 8px 8px;
   margin: 0 auto;
-  // padding-bottom: 20px;
   height: 300px;
   width: 300px;
   align-items: center;
-  // display: grid;
-
+  position: relative;
   .image {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
   }
-
 }
 
 .card-trip-infos h2 {
