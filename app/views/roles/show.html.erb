@@ -1,14 +1,32 @@
 <div class="container">
-  <div class="mx-4">
-    <h1><%= @user %></h1>
+  <div class="mt-4">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="user-container my-4" >
       <div class="user-image">
         <%= image_tag("placeholder-profile.png") %>
       </div>
       <div class="user-bio mx-3">
         <small>About Me</small>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque explicabo corporis cumque repellendus. Neque velit, officia fugiat labore et rem!</p>
+        <p><%= @user.bio %></p>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+<% 
+=begin %>  
+
+This can only be implemented once Cloudinary is attached to the user model
+
+<% if @user.photo.attached? %>
+  <%= cl_image_path @user.photo.key, crop: :fill %>')">
+<% else %>
+  <%= image_tag("placeholder-profile.png") %>
+<% end %>
+
+
+<% 
+=end %>
