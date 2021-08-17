@@ -1,10 +1,10 @@
 <div class="container">
   <div class="card-trip">
-    <h2>20 hot moms in your area...</h2>
+    <h2> <%= @roles.count %> hot <%= params[:name]%> in your area...  </h2>
     <% @roles.each do |role| %>
       <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5LznCAySavsDsdAEOE6glIYwe990V1yZ4w&usqp=CAU" %>
       <div class="card-trip-infos">
-        <h2><%= role.role %></h2>
+        <h2><%= role.name %></h2>
       </div>
     <% end %>
   </div>
