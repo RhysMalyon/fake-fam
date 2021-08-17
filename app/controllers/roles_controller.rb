@@ -1,5 +1,11 @@
 class RolesController < ApplicationController
-  def show; end
+  before_action :set_role, only: :show
+
+  def show
+    @role = policy_scope(Role)
+    @user = User.new
+    authorize @role
+  end
 
   private
 

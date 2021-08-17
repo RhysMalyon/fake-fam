@@ -1,11 +1,10 @@
 <div class="container">
   <div class="cards mt-4 mx-4">
-    <% if @role.photo.attached? %>
-      <div class="card-category d-flex flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.3) 100%), url('<%= cl_image_path @role.photo.key, crop: :fill %>')">
-    <% else %>
-      <div class="card-category d-flex flex-column" style='background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.3) 100%), url(<%= image_url('placeholder-profile.jpg') %>)'>
-    <% end %>
-      <%= link_to @role.role, role_path(@role) %>
+    <div class="card-category d-flex flex-column" >
+    <h1><%= @user %></h1>
+      <div class="user-image mt-4">
+        <%= image_tag("placeholder-profile.png", size: "360x360") %>
+      </div>
     </div>
   </div>
 </div>
