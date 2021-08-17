@@ -1,0 +1,27 @@
+<% if booking.start_time > Date.today + 14 %>
+<div class="card-product mt-3">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <div class="circle">
+      <p><%= booking.role.name %></p>
+    </div>
+    <h2><%= booking.user.first_name %></h2>
+    <p><%= booking.category %></p>
+    <p><%= booking.location %></p>
+    <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
+  </div>
+</div>
+<% elsif booking.start_time < Date.today %>
+<div class="card-product mt-3">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <div class="circle">
+      <p><%= booking.role.name %></p>
+    </div>
+    <h2><%= booking.user.first_name %></h2>
+    <p><%= booking.category %></p>
+    <p><%= booking.location %></p>
+    <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
+  </div>
+</div>
+<% end %>

@@ -5,8 +5,11 @@ class RolePolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
 
-    private
+  private
 
   def user_is_owner?
     user == record.user
