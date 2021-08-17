@@ -6,7 +6,7 @@
 <div class="hp-card-container mt-5">
   <div class="cards">
     <% @roles.each do |role| %>
-      <%= link_to roles_path, class: "text-decoration-none" do%>
+      <%= link_to roles_path(name: role), class: "text-decoration-none" do%>
         <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "#{role}.jpg"%>)">
           <%= role.capitalize %>
         </div>
