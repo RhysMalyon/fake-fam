@@ -1,5 +1,15 @@
 class RolesController < ApplicationController
   before_action :set_role, only: :show
+  skip_before_action :authenticate_user!, only: [:index]
+
+  def index
+    # @roles = Role.all
+    if params[:name].present?
+      @roles = policy_scope(Role).where(name: params[:name].downcase)
+    else
+      @roles = policy_scope(Role)
+    end
+  end
 
   def show
     @role = policy_scope(Role)
