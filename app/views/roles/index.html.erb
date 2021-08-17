@@ -1,10 +1,13 @@
-<div class="container">
-  <div class="card-trip">
-    <h2> <%= @roles.count %> hot <%= params[:name]%> in your area...  </h2>
+<div class="container mt-3">
+  <h2> <%= pluralize(@roles.count,"hot #{params[:name]}" )%> in your area...  </h2>
+  <div class="all-cards">
     <% @roles.each do |role| %>
-      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5LznCAySavsDsdAEOE6glIYwe990V1yZ4w&usqp=CAU" %>
-      <div class="card-trip-infos">
-        <h2><%= role.name %></h2>
+      <div class="card-trip">
+        <%= image_tag "mo.jpg", class: 'image' %>
+        <div class="card-trip-infos">
+          <h2><%= role.name %></h2>
+        </div>
+        <%= link_to '', role_path(role), class: 'list-link' %>
       </div>
     <% end %>
   </div>
