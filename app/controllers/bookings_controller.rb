@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).group_by { |booking| booking.start_time.to_date }
+    @grouped_bookings = policy_scope(Booking).order(start_time: "ASC").group_by do |booking|
+      booking.start_time.to_date > Date.today + 19 ? "upcoming" : "past"
+    end
   end
   private
 
