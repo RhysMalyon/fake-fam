@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
-  has_many :roles, through: :bookings
+  has_many :roles
+  has_many :bookings_as_owner, through: :roles, source: :bookings
 
   # validates :first_name, :last_name, :age, :location, presence: true
   # validates :age, numericality: { greater_than_or_equal_to: 18 }

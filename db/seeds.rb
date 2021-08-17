@@ -4,16 +4,6 @@ Role.destroy_all
 User.destroy_all
 Booking.destroy_all
 
-puts " Creating roles..."
-
-10.times do
-  Role.create!(
-    name: Role::ROLES.sample,
-    price: rand(3000..10_000),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta."
-  )
-end
-
 puts "Creating users..."
 
 10.times do
@@ -25,6 +15,17 @@ puts "Creating users..."
     age: rand(18..90),
     bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
     location: Faker::Address.city
+  )
+end
+
+puts " Creating roles..."
+
+User.find_each do |u|
+  Role.create!(
+    name: Role::ROLES.sample,
+    price: rand(3000..10_000),
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    user: u
   )
 end
 
