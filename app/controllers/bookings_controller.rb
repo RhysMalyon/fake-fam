@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
       booking.start_time.to_date > Date.today + 19 ? "upcoming" : "past"
     end
   end
+
   private
 
   def booking_params
