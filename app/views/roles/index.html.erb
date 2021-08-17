@@ -1,6 +1,6 @@
 <div class="container">
+  <h2> <%= @roles.count %> hot <%= params[:name]%> in your area...  </h2>
   <div class="card-trip">
-    <h2> <%= @roles.count %> hot <%= params[:name]%> in your area...  </h2>
     <% @roles.each do |role| %>
       <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5LznCAySavsDsdAEOE6glIYwe990V1yZ4w&usqp=CAU" %>
       <div class="card-trip-infos">
