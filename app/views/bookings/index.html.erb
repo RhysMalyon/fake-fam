@@ -1,22 +1,25 @@
+<div class="container my-3">
 <h1 class="text-center mt-3">Your bookings</h1>
-    <div class="container d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
     <% %w[upcoming past].each do |group_name| %>
       <div class="cards mt-2">
       <h2 class="text-center mt-3"><%= group_name.capitalize %> bookings</h2>
         <% @grouped_bookings[group_name].each do |booking| %>
         <div class="card-product mt-3">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <div class="circle">
-            <p><%= booking.role.name %></p>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <div class="circle">
+              <p><%= booking.role.name %></p>
+            </div>
+            <h2><%= booking.user.first_name %></h2>
+            <p><%= booking.category %></p>
+            <p><%= booking.location %></p>
+            <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
           </div>
-          <h2><%= booking.user.first_name %></h2>
-          <p><%= booking.category %></p>
-          <p><%= booking.location %></p>
-          <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
         </div>
+          <% end %>
+        <% end %>
       </div>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
