@@ -3,12 +3,12 @@
     <h1>I need a...</h1>
   </div>
 </div>
-<div class="container mt-3">
+<div class="hp-card-container mt-3">
   <div class="cards">
     <% @roles.each do |role| %>
-      <%= link_to roles_path do%>
+      <%= link_to roles_path, class: "text-decoration-none" do%>
         <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path role%>)">
-          <%= role %>
+          <%= role.capitalize %>
         </div>
       <% end %>
     <% end %>
