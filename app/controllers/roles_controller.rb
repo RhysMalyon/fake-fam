@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: :show
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     # @roles = Role.all
@@ -12,8 +12,7 @@ class RolesController < ApplicationController
   end
 
   def show
-    @role = policy_scope(Role)
-    @user = User.where(role: @role)
+    @user = @role.user
     authorize @role
   end
 
