@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :roles, through: :bookings
 
-  validates :first_name, :last_name, :age, :location, presence: true
-  validates :age, numericality: { greater_than_or_equal_to: 18 }
+  # validates :first_name, :last_name, :age, :location, presence: true
+  # validates :age, numericality: { greater_than_or_equal_to: 18 }
 end
