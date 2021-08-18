@@ -7,7 +7,7 @@ Booking.destroy_all
 
 puts "Creating users..."
 
-10.times do
+20.times do
   file = URI.open('https://thispersondoesnotexist.com/image')
   user = User.create!(
     first_name: Faker::Name.first_name,
