@@ -1,9 +1,11 @@
-<div class="container mt-3">
-  <h2> <%= pluralize(@roles.count,"hot #{params[:name]}" )%> in your area...  </h2>
+<div class="card-trip-container">
+  <div class="card-trip-item">
+    <h2> <%= pluralize(@roles.count,"hot #{params[:name]}" )%> in your area...  </h2>
+  </div>
   <div class="all-cards">
     <% @roles.each do |role| %>
       <div class="card-trip">
-        <%= image_tag "mo.jpg", class: 'image' %>
+        <%= image_tag role.user.photo, class: 'image' %>
         <div class="card-trip-infos">
           <h2><%= role.user.first_name %> <%= role.user.last_name %></h2>
         </div>
@@ -11,4 +13,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>
