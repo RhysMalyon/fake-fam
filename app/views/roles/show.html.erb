@@ -10,7 +10,9 @@
         <p><%= @user.bio %></p>
       </div>
     </div>
-    <%= render "/bookings/form", booking: @booking %>
+    <div class="container booking-form">
+      <%= render "/bookings/form", booking: @booking %>
+    </div>
   </div>
 </div>
 
