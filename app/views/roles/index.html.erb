@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="card-trip-item">
-    <h2> <%= pluralize(@roles.count,"#{params[:name]}" )%> in your area...  </h2>
-  </div>
+   <h2> <%= pluralize(@roles.count,"#{params[:name]}" )%> in your area...  </h2>
   <div class="all-cards">
+  <div class="card-deck d-flex justify-content-center">
     <% @roles.each do |role| %>
-      <div class="card-trip">
-        <%= image_tag role.user.photo, class: 'image' %>
-        <div class="card-trip-infos">
-          <h2><%= role.user.first_name %> <%= role.user.last_name %></h2>
+      <%=link_to(role_path(role), class: "text-decoration-none") do %>
+        <div class="card-trip m-3">
+          <%= image_tag role.user.photo, class: 'image' %>
+          <div class="card-trip-infos">
+            <h2><%= role.name.capitalize %></h2>
+            <p><%= role.user.first_name %> <%= role.user.last_name %></p>
+          </div>
         </div>
-        <%= link_to '', role_path(role), class: 'list-link' %>
-      </div>
+      <% end %>
     <% end %>
   </div>
-</div>
 </div>
