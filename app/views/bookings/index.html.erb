@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-center">
     <% @grouped_bookings.keys.sort.reverse.each do |group_name| %>
       <div class="bookings-cards mt-2">
-      <h2 class="text-center mt-3"><%= group_name.capitalize %> bookings</h2>
+      <p class="text-center mt-3"><%= group_name.capitalize %> bookings</p>
         <% @grouped_bookings[group_name].first(3).each do |booking| %>
         <div class="card-product mt-3">
           <%= image_tag booking.role.user.photo %>
