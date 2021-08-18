@@ -13,6 +13,7 @@ class RolesController < ApplicationController
 
   def show
     @user = @role.user
+    @booking = Booking.new
     authorize @role
   end
 
