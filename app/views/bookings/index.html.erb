@@ -6,7 +6,7 @@
       <h2 class="text-center mt-3"><%= group_name.capitalize %> bookings</h2>
         <% @grouped_bookings[group_name].first(3).each do |booking| %>
         <div class="card-product mt-3">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= image_tag booking.user.photo %>
           <div class="card-product-infos d-flex justify-content-between">
               <div class="circle">
                 <p><%= booking.role.name %></p>
@@ -19,6 +19,8 @@
             </div>
             <div class="card-inside-product">
               <p><%= booking.status %></p>
+              <p>Contact</p>
+              <p><%= booking.user.email %></p>
             </div>
           </div>
         </div>
