@@ -3,7 +3,7 @@
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="user-container my-4" >
       <div class="user-image">
-        <%= image_tag("placeholder-profile.png") %>
+        <%= image_tag @role.user.photo %>
       </div>
       <div class="user-bio mx-3">
         <small>About Me</small>
@@ -14,18 +14,15 @@
   </div>
 </div>
 
-
 <% 
 =begin %>  
 
-This can only be implemented once Cloudinary is attached to the user model
 
+This can only be implemented once Cloudinary is attached to the user model
 <% if @user.photo.attached? %>
   <%= cl_image_path @user.photo.key, crop: :fill %>')">
 <% else %>
   <%= image_tag("placeholder-profile.png") %>
 <% end %>
-
-
-<% 
+<%
 =end %>
