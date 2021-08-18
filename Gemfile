@@ -35,6 +35,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'font-awesome-sass'
 gem 'pundit'
 gem 'simple_form'
+gem 'cloudinary', '~> 1.16.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
