@@ -1,6 +1,6 @@
-<div class="card-trip-container">
+<div class="container">
   <div class="card-trip-item">
-    <h2> <%= pluralize(@roles.count,"hot #{params[:name]}" )%> in your area...  </h2>
+    <h2> <%= pluralize(@roles.count,"#{params[:name]}" )%> in your area...  </h2>
   </div>
   <div class="all-cards">
     <% @roles.each do |role| %>
