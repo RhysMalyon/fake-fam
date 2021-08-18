@@ -1,6 +1,5 @@
 <div class="container">
-   <h2> <%= pluralize(@roles.count,"#{params[:name]}" )%> in your area...  </h2>
-  <div class="all-cards">
+  <h1> <%= pluralize(@roles.count,"#{params[:name]}" )%> in your area... </h1>
   <div class="card-deck d-flex justify-content-center">
     <% @roles.each do |role| %>
       <%=link_to(role_path(role), class: "text-decoration-none") do %>
