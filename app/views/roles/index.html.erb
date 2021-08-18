@@ -5,7 +5,7 @@
       <div class="card-trip">
         <%= image_tag "mo.jpg", class: 'image' %>
         <div class="card-trip-infos">
-          <h2><%= role.name %></h2>
+          <h2><%= role.user.first_name %> <%= role.user.last_name %></h2>
         </div>
         <%= link_to '', role_path(role), class: 'list-link' %>
       </div>
