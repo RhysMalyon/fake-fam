@@ -1,7 +1,7 @@
 <div class="container my-3">
 <h1 class="text-center mt-3">Your bookings</h1>
   <div class="d-flex justify-content-center">
-    <% %w[upcoming past].each do |group_name| %>
+    <% @grouped_bookings.keys.sort.reverse.each do |group_name| %>
       <div class="bookings-cards mt-2">
       <h2 class="text-center mt-3"><%= group_name.capitalize %> bookings</h2>
         <% @grouped_bookings[group_name].first(3).each do |booking| %>

@@ -5,6 +5,23 @@ class BookingsController < ApplicationController
     end
   end
 
+  def new
+    @booking = Booking.new
+  end
+
+  def create
+    @role = Role.find(params[:role_id])
+    @booking = Booking.new(booking_params)
+    @booking.role = @role
+    @booking.user = current_user
+    authorize @booking
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render "roles/show"
+    end
+  end
+
   private
 
   def booking_params
