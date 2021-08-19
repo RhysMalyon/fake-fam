@@ -21,6 +21,30 @@
             <div class="circle">
               <p><%= booking.status %></p>
             </div>
+            <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "approved"} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+                  <%= f.submit 'Decline', class: 'btn btn-info' %>
+                <% end %>
+
+            <div class="booking-actions">
+                <% if booking.status_pending? %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'approve'} %>
+                  <%= f.submit 'approve', class: 'btn btn-info' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+                  <%= f.submit 'Decline', class: 'btn btn-info' %>
+                <% end %>
+              <% else %>
+                <p class='booking-tag'><%= booking.status %></p>
+              <% end %>
+            </div>
+
+          <% end %>
           </div>
         </div>
           <% end %>
