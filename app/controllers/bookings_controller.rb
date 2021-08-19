@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[edit update destroy]
+
   def index
     @grouped_bookings = policy_scope(Booking).order(start_time: "ASC").group_by do |booking|
       booking.start_time.to_date > Date.today ? "upcoming" : "past"
@@ -22,8 +24,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
       redirect_to owner_bookings_path
@@ -32,7 +36,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_url, notice: 'Your booking was successfully deleted'
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :location, :category, :status)

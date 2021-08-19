@@ -1,32 +1,33 @@
 <div class="container my-3">
-<h1 class="text-center mt-3">Your bookings</h1>
+  <h1 class="text-center mt-3">Your bookings</h1>
   <div class="d-flex justify-content-center">
     <% @grouped_bookings.keys.sort.reverse.each do |group_name| %>
       <div class="bookings-cards mt-2">
-      <p class="text-center mt-3"><%= group_name.capitalize %> bookings</p>
+        <p class="text-center mt-3"><%= group_name.capitalize %> bookings</p>
         <% @grouped_bookings[group_name].first(3).each do |booking| %>
-        <div class="card-product mt-3">
-          <%= image_tag booking.role.user.photo %>
-          <div class="card-product-infos d-flex justify-content-between align-items-center">
-            <div class="card-inside-product">
-              <h2><%= booking.role.user.first_name %></h2>
-              <p><%= booking.role.name.upcase %></p>
-              <p><%= booking.category %></p>
-              <p><%= booking.location %></p>
-              <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
-            </div>
-            <div class="card-inside-product">
-              <p>Contact</p>
-              <p><%= booking.role.user.email %></p>
-            </div>
-            <div class="circle">
-              <p><%= booking.status %></p>
+          <div class="card-product mt-3">
+            <%= image_tag booking.role.user.photo %>
+            <div class="card-product-infos d-flex justify-content-between align-items-center">
+              <div class="card-inside-product">
+                <h2><%= booking.role.user.first_name %></h2>
+                <p><%= booking.role.name.upcase %></p>
+                <p><%= booking.category %></p>
+                <p><%= booking.location %></p>
+                <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
+              </div>
+              <div class="card-inside-product">
+                <p>Contact</p>
+                <p><%= booking.role.user.email %></p>
+              </div>
+              <div class="circle">
+                <p><%= booking.status %></p>
+                <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Delete booking?' }, class: "delete"  %>
+              </div>
             </div>
           </div>
-        </div>
-          <% end %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
