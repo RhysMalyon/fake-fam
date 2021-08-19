@@ -23,7 +23,7 @@ puts "Adding role to Allen..."
 
 Role.create!(
   name: "boyfriend",
-  price: 5000,
+  price: rand(5000..10_000),
   bio: "I'm married so I know a lot about relationships.",
   user: User.find(1)
 )
@@ -47,7 +47,7 @@ puts "Adding role to Anthony..."
 
 Role.create!(
   name: "dad",
-  price: 7500,
+  price: rand(5000..10_000),
   bio: "I'm like the dad of the group.",
   user: User.find(2)
 )
@@ -71,7 +71,7 @@ puts "Adding role to Cheri..."
 
 Role.create!(
   name: "sister",
-  price: 500,
+  price: rand(5000..10_000),
   bio: "I have a sister so I know what I'm doing. Trust me.",
   user: User.find(3)
 )
@@ -95,7 +95,7 @@ puts "Adding role to Daniel..."
 
 Role.create!(
   name: "brother",
-  price: 2500,
+  price: rand(5000..10_000),
   bio: "Everyone calls me bro so I decided to embrace it.",
   user: User.find(4)
 )
@@ -119,7 +119,7 @@ puts "Adding role to Derek..."
 
 Role.create!(
   name: "boyfriend",
-  price: 25000,
+  price: rand(5000..10_000),
   bio: "I like skating and sniffing socks before I wash them.",
   user: User.find(5)
 )
@@ -143,7 +143,7 @@ puts "Adding role to Jose..."
 
 Role.create!(
   name: "dad",
-  price: 15000,
+  price: rand(5000..10_000),
   bio: "I have a quiet determination that makes me trustworthy.",
   user: User.find(6)
 )
@@ -156,7 +156,7 @@ puts "Creating Ope..."
     last_name: "Dada",
     email: "ope@theboss.co.jp",
     password: '123123',
-    age: 21,
+    age: 28,
     bio: "Hi everyone, my name is Ope. My career background is in sales/customer relations and logistics(warehousing) back in Nigeria. I joined le wagon because I am interested in web development and I am hoping to switch my career path to a tech-related role. After the Bootcamp, I plan to keep learning and developing the skills I would have gained, and hopefully get a job in the tech industry. ",
     location: Faker::Address.city
   )
@@ -191,7 +191,7 @@ puts "Adding role to Sae..."
 
 Role.create!(
   name: "mum",
-  price: 20000,
+  price: rand(5000..10_000),
   bio: "I've kept a tamagotchi alive for 20 years.",
   user: User.find(8)
 )
@@ -204,7 +204,7 @@ puts "Creating Viddy..."
     last_name: "Gregorato",
     email: "viddy@greggy.co.jp",
     password: '123123',
-    age: 22,
+    age: 35,
     bio: "Trying to be a more convincing human... ",
     location: Faker::Address.city
   )
@@ -239,565 +239,175 @@ puts "Adding role to Kevin..."
 
 Role.create!(
   name: "brother",
-  price: 3000,
+  price: rand(5000..10_000),
   bio: "I can make you a website at the same time. Trust me.",
   user: User.find(10)
 )
 
-male_roles = %w[dad brother boyfriend]
+puts "Creating Doug..."
 
 1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?man')
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Douglas",
+    last_name: "Berkley",
+    email: "doug@headhoncho.com",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 34,
+    bio: "Hi I'm Doug and I like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/doug.jpg')), filename: 'doug.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Doug..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "boyfriend",
+  price: rand(5000..10_000),
+  bio: "'He's boyfriend material' - Cheri, 2021",
   user: User.find(11)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Trouni..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Trouni",
+    last_name: "Tiet",
+    email: "trouni@frontendguy.com",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 32,
+    bio: "Hi I'm Trouni and I also like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/trouni.jpg')), filename: 'trouni.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Trouni..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "boyfriend",
+  price: rand(5000..10_000),
+  bio: "Ay girl let me query your database.",
   user: User.find(12)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Yann..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Yann",
+    last_name: "Klein",
+    email: "yann@ilovejavascript.com",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 34,
+    bio: "Hi I'm Yann and I also like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/yann.jpg')), filename: 'yann.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Yann..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "brother",
+  price: rand(5000..10_000),
+  bio: "I'll give special care to your front end",
   user: User.find(13)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Sylvain..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Sylvain",
+    last_name: "Pierre",
+    email: "sylvain@lewagon.com",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 34,
+    bio: "Hi I'm Sylvain and I run the show.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/sylvain.jpg')), filename: 'sylvain.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Sylvain..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "dad",
+  price: rand(5000..10_000),
+  bio: "Let me impact your hub..",
   user: User.find(14)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Noemi..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Noemi",
+    last_name: "Ashizuka",
+    email: "noemi@topta.co.jp",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 28,
+    bio: "Hi nice to meet you let me help you out.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/noemi.jpg')), filename: 'noemi.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Noemi..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "mum",
+  price: rand(5000..10_000),
+  bio: "Keen to help",
   user: User.find(15)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Charlotte..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Charlotte",
+    last_name: "Demaret",
+    email: "charlotte@sorryimfrench.co.jp",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 25,
+    bio: "Hi nice to meet you let me help you out.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/charlotte.jpg')), filename: 'charlotte.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Charlotte..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "sister",
+  price: rand(5000..10_000),
+  bio: "Keen to help",
   user: User.find(16)
 )
 
-1.times do
-  puts "Creating new user..."
+puts "Creating Lena..."
 
-  file = URI.open('https://source.unsplash.com/featured/?man')
+1.times do
   user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
+    first_name: "Lena",
+    last_name: "Namiki",
+    email: "lena@thenewgirl.co.jp",
     password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+    age: 24,
+    bio: "I have been working in Marketing for the past 4 years. I have always been interested in learning coding and decided to join Le Wagon to obtain a new hard skill set that can help me with a career change.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/lena.jpg')), filename: 'lena.jpg', content_type: 'image/jpg')
 end
 
-puts " Creating roles..."
+puts "Adding role to Lena..."
 
 Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
+  name: "girlfriend",
+  price: rand(5000..10_000),
+  bio: "Keen to help",
   user: User.find(17)
 )
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?man')
-  user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(18)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?man')
-  user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(19)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?man')
-  user = User.create!(
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: male_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(20)
-)
-
-
-female_roles = %w[mum sister girlfriend]
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(21)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(22)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(23)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(24)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(25)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(26)
-)
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(27)
-)
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(28)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(29)
-)
-
-1.times do
-  puts "Creating new user..."
-
-  file = URI.open('https://source.unsplash.com/featured/?woman')
-  user = User.create!(
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.safe_email,
-    password: '123123',
-    age: rand(18..60),
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-    location: Faker::Address.city
-  )
-  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-
-puts " Creating roles..."
-
-Role.create!(
-  name: female_roles.sample,
-  price: rand(3000..10_000),
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-  user: User.find(30)
-)
-
-puts "Created #{Role.count} roles and #{User.count} users."
-# require "open-uri"
-
-# puts "Destroying everything - waaaaaaaaa!"
-# Role.destroy_all
-# User.destroy_all
-
-# puts "Creating users..."
-
-# 20.times do
-#   file = URI.open('https://thispersondoesnotexist.com/image')
-#   user = User.create!(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.safe_email,
-#     password: '123123',
-#     age: rand(18..90),
-#     bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-#     location: Faker::Address.city
-#   )
-#   user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-# end
-
-# puts " Creating roles..."
-
-# User.find_each do |u|
-#   Role.create!(
-#     name: Role::ROLES.sample,
-#     price: rand(3000..10_000),
-#     bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, consequuntur. Quisquam, fugiat ducimus maiores reprehenderit nobis doloribus. Vel id sed magni ad accusamus, aliquam numquam quisquam sapiente natus amet soluta.",
-#     user: u
-#   )
-# end
-
-# puts "Created #{Role.count} roles and #{User.count} users."
-
-# ## BOOKINGS SEEDS ##
-
-# # Booking.destroy_all
-
-# # puts "Created Users and Roles... now creating bookings..."
-# # roles = Role.all
-
-# # User.find_each do |u|
-# #   Booking.create!(
-#   #     start_time: Faker::Time.forward(days: 23, period: :morning, format: :short),
-#   #     end_time: Faker::Time.forward(days: 23, period: :evening, format: :short),
-#   #     location: Faker::Address.city,
-#   #     category: "Lorem ipsum dolor",
-#   #     status: rand(0..2),
-#   #     user: u,
-#   #     role: roles.sample
-#   #   )
-#   # end
