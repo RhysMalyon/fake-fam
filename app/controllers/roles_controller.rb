@@ -4,7 +4,9 @@ class RolesController < ApplicationController
 
   def index
     # @roles = Role.all
-    if params[:name].present?
+    if params[:query].present?
+      @roles = policy_scope(Role).where(name: params[:query].downcase)
+    elsif params[:name].present?
       @roles = policy_scope(Role).where(name: params[:name].downcase)
     else
       @roles = policy_scope(Role)

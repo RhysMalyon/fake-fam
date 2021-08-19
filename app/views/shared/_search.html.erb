@@ -1,0 +1,8 @@
+<%= form_tag roles_path(name: params[:query]), method: :get do %>
+  <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Dad"
+        %>
+  <%= submit_tag "Find", class: "btn btn-primary" %>
+<% end %>
