@@ -1,7 +1,9 @@
 <div class="container">
   <div class="mt-4">
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <div class="user-container my-4" >
+    <%= link_to user_path(@user), style: "text-decoration: none; color: black", class: "profile-link" do %>
+      <h1><%= @user.first_name %> <%= @user.last_name %> <i class="fas fa-user profile-icon"></i></h1>
+    <% end %>
+    <div class="user-container my-3" >
       <div class="user-image">
         <% if @role.user.photo.attached? %>
           <%= image_tag @role.user.photo %>
@@ -12,7 +14,7 @@
       <div class="user-bio mx-4">
         <small>About Me</small>
         <p><%= @role.bio %></p>
-        <p>¥<%= @role.price %></p>
+        <p>¥<%= number_with_delimiter(@role.price, :delimiter => ',') %></p>
       </div>
     </div>
     <div class="container booking-form">
@@ -20,3 +22,4 @@
     </div>
   </div>
 </div>
+

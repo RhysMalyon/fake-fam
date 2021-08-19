@@ -12,7 +12,7 @@
               <h2><%= role.name.upcase %></h2>
               <p><%= role.user.first_name %> <%= role.user.last_name %></p>
             </div>
-            <p class="card-trip-pricing">¥<%= role.price %></p>
+            <p class="card-trip-pricing">¥<%= number_with_delimiter(role.price, :delimiter => ',') %>/hour</p>
           </div>
         </div>
       <% end %>

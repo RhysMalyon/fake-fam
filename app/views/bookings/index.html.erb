@@ -25,7 +25,9 @@
               </div>
               <div class="circle">
                 <p><%= booking.status %></p>
-                <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Delete booking?' }, class: "delete"  %>
+              </div>
+              <div class="delete">
+                <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Delete booking?' }, class: "btn btn-danger"  %>
               </div>
             </div>
           </div>
