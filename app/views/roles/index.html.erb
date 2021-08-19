@@ -4,7 +4,11 @@
     <% @roles.each do |role| %>
       <%=link_to(role_path(role), class: "text-decoration-none") do %>
         <div class="card-trip m-3">
-          <%= image_tag role.user.photo, class: 'image' %>
+          <% if role.user.photo.attached?  %>
+            <%= image_tag role.user.photo, class: 'image' %>
+          <% else %>
+            <%= image_tag 'placeholder-profile.png' %>
+          <% end %>
           <div class="card-trip-infos">
             <h2><%= role.name.capitalize %></h2>
             <p><%= role.user.first_name %> <%= role.user.last_name %></p>
