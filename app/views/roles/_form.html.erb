@@ -1,0 +1,10 @@
+<%= simple_form_for @role do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :bio %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
