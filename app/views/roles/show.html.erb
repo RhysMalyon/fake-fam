@@ -12,7 +12,7 @@
       <div class="user-bio mx-4">
         <small>About Me</small>
         <p><%= @role.bio %></p>
-        <p>¥<%= @role.price %></p>
+        <p>¥<%= number_with_delimiter(@role.price, :delimiter => ',') %></p>
       </div>
     </div>
     <div class="container booking-form">
