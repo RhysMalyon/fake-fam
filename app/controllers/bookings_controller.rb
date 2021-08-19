@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit update destroy]
 
   def index
-    @grouped_bookings = policy_scope(Booking).order(start_time: "ASC").group_by do |booking|
+    @grouped_bookings = policy_scope(Booking).where(user: current_user).order(start_time: "ASC").group_by do |booking|
       booking.start_time.to_date > Date.today ? "upcoming" : "past"
     end
   end
