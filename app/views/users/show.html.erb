@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="mt-4">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <div class="user-container my-4" >
+      <div class="user-image">
+        <% if @user.photo.attached? %>
+          <%= image_tag @user.photo %>
+        <% else %>
+          <%= image_tag 'placeholder-profile.png' %>
+        <% end %>
+      </div>
+      <div class="user-bio mx-3">
+        <small>About Me</small>
+        <p><%= @user.bio %></p>
+        <p><%= @user.age %></p>
+        <p><%= @user.gender %></p>
+        <p><%= @user.location %></p>
+      </div>
+    </div>
+    <div class="text-center">
+      <h2>My roles</h2>
+    </div>
+    <div class="container d-flex text-center justify-content-center">
+      <div class="mx-3 p-4">
+        <div class="card-role">
+          <% @user.roles.each do |role| %>
+            <%= image_tag "#{role.name}.jpg", class: "role-photo"%>
+            <div class="role-bio mt-4">
+              <p><i class="fas fa-user-tag"></i> <%= role.name.capitalize %></p>
+              <p><i class="fas fa-tags"></i> ¥<%= role.price %></p>
+              <%= link_to ("<span>Book me</span>").html_safe, role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

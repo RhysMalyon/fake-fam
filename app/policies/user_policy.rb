@@ -5,6 +5,14 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
+  def edit?
+    true
+  end
+
   private
 
   def user_is_owner?
