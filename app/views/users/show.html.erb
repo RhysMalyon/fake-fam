@@ -15,6 +15,7 @@
         <p><%= @user.age %></p>
         <p><%= @user.gender %></p>
         <p><%= @user.location %></p>
+        <%= link_to 'Edit profile', edit_user_path(@user) %>
       </div>
     </div>
     <div class="text-center">

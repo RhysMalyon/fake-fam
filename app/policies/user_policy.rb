@@ -5,17 +5,13 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    true
-  end
-
-  def edit?
-    true
+  def update?
+    user_is_owner?
   end
 
   private
 
   def user_is_owner?
-    user == record.user
+    user == record
   end
 end
