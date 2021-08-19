@@ -1,12 +1,11 @@
 .card-trip-grid {
   display: grid;
   place-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 36px;
+  gap: 16px;
 }
 
 .card-trip {
-  width: 100%;
+  width: 300px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -64,7 +63,6 @@
 @media (min-width: 768px) {
   .card-trip-grid {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 48px;
   }
 }
 
@@ -72,14 +70,12 @@
 @media (min-width: 992px) {
   .card-trip-grid {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 60px;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .card-trip-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
