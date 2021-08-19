@@ -1,3 +1,10 @@
+ .booking-actions {
+    display: flex;
+    position: absolute;
+    bottom: 4px;
+    right: 10px;
+  }
+
 .circle {
   background-color: $orange;
   border-radius: 50%;
@@ -16,6 +23,23 @@
 
 }
 
+.circle-owner {
+  background-color: $orange;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  p {
+    margin: 0;
+  }
+
+}
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -55,4 +79,8 @@
 
 .card-inside-product {
   width: 200px;
+}
+
+.card-inside-product-owner {
+  width: 150px;
 }

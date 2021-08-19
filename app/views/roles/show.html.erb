@@ -3,7 +3,11 @@
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="user-container my-4" >
       <div class="user-image">
-        <%= image_tag @role.user.photo %>
+        <% if @role.user.photo.attached? %>
+          <%= image_tag @role.user.photo %>
+        <% else %>
+          <%= image_tag 'placeholder-profile.png' %>
+        <% end %>
       </div>
       <div class="user-bio mx-3">
         <small>About Me</small>
