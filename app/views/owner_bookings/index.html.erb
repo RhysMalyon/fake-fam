@@ -1,2 +1,31 @@
-<h1>OwnerBookings#index</h1>
-<p>Find me in app/views/owner_bookings/index.html.erb</p>
+<div class="container my-3">
+<h1 class="text-center mt-3">Your schedule</h1>
+  <div class="d-flex justify-content-center">
+    <% @grouped_bookings.keys.sort.reverse.each do |group_name| %>
+      <div class="bookings-cards mt-2">
+      <p class="text-center mt-3"><%= group_name.capitalize %> bookings</p>
+        <% @grouped_bookings[group_name].first(3).each do |booking| %>
+        <div class="card-product mt-3">
+          <%# <%= image_tag booking.user.photo %>
+          <div class="card-product-infos d-flex justify-content-between align-items-center">
+            <div class="card-inside-product">
+              <h2><%= booking.user.first_name %></h2>
+              <p><%= booking.category %></p>
+              <p><%= booking.location %></p>
+              <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
+            </div>
+            <div class="card-inside-product">
+              <p>Contact</p>
+              <p><%= booking.user.email %></p>
+            </div>
+            <div class="circle">
+              <p><%= booking.status %></p>
+            </div>
+          </div>
+        </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
