@@ -1,0 +1,55 @@
+<div class="container my-3">
+<h1 class="text-center mt-3">Your schedule</h1>
+  <div class="d-flex justify-content-center">
+    <% @grouped_bookings.keys.sort.reverse.each do |group_name| %>
+      <div class="bookings-cards mt-2">
+      <p class="text-center mt-3"><%= group_name.capitalize %> bookings</p>
+        <% @grouped_bookings[group_name].first(3).each do |booking| %>
+        <div class="card-product mt-3">
+          <%# <%= image_tag booking.user.photo %>
+          <div class="card-product-infos d-flex justify-content-between align-items-center">
+            <div class="card-inside-product">
+              <h2><%= booking.user.first_name %></h2>
+              <p><%= booking.category %></p>
+              <p><%= booking.location %></p>
+              <p><%= booking.start_time.strftime("%d %b %Y at %H:%M") %></p>
+            </div>
+            <div class="card-inside-product">
+              <p>Contact</p>
+              <p><%= booking.user.email %></p>
+            </div>
+            <div class="circle">
+              <p><%= booking.status %></p>
+            </div>
+            <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "approved"} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+                  <%= f.submit 'Decline', class: 'btn btn-info' %>
+                <% end %>
+
+            <div class="booking-actions">
+                <% if booking.status_pending? %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'approve'} %>
+                  <%= f.submit 'approve', class: 'btn btn-info' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+                  <%= f.submit 'Decline', class: 'btn btn-info' %>
+                <% end %>
+              <% else %>
+                <p class='booking-tag'><%= booking.status %></p>
+              <% end %>
+            </div>
+
+          <% end %>
+          </div>
+        </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

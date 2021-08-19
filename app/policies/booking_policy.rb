@@ -1,9 +1,13 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
-      # user.bookings
+      # scope.all
+      user.bookings
     end
+  end
+
+  def update?
+    user_is_owner? || user == record.role.user
   end
 
   private

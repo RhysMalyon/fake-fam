@@ -22,13 +22,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path
+    else
+      render :index
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :location, :category)
+    params.require(:booking).permit(:start_time, :end_time, :location, :category, :status)
   end
 
-  def authorize_booking
-    authorize @booking
-  end
 end
