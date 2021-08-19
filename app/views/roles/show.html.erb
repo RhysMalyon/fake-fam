@@ -8,6 +8,7 @@
       <div class="user-bio mx-3">
         <small>About Me</small>
         <p><%= @user.bio %></p>
+        <p><%= @role.price %></p>
       </div>
     </div>
     <div class="container booking-form">
@@ -15,11 +16,8 @@
     </div>
   </div>
 </div>
-
-<% 
-=begin %>  
-
-
+<%
+=begin %>
 This can only be implemented once Cloudinary is attached to the user model
 <% if @user.photo.attached? %>
   <%= cl_image_path @user.photo.key, crop: :fill %>')">
