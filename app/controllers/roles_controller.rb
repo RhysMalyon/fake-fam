@@ -13,6 +13,22 @@ class RolesController < ApplicationController
     end
   end
 
+  def new
+    @role = Role.new
+    authorize @role
+  end
+
+  def create
+    @role = Role.new(role_params)
+    @role.user = current_user
+    authorize @role
+    if @role.save
+      redirect_to role_path(@role)
+    else
+      render :new
+    end
+  end
+
   def show
     @user = @role.user
     @booking = Booking.new
@@ -28,4 +44,5 @@ class RolesController < ApplicationController
   def set_role
     @role = Role.find(params[:id])
   end
+
 end
