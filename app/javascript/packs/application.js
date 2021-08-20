@@ -33,6 +33,14 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpickr();
+
+  $(function(){
+      $('a').each(function(){
+          if ($(this).prop('href') == window.location.href) {
+              $(this).addClass('active');
+          }
+      });
+  });
 });
 
 
