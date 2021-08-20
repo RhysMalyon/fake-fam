@@ -15,7 +15,7 @@
         <p><strong>Age:</strong> <%= @user.age %></p>
         <p><%= @user.gender %></p>
         <p><strong>Location:</strong> <%= @user.location %></p>
-        <p><%= link_to 'Edit profile', edit_user_path(@user) %></p>
+        <p><%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-outline-primary" %></p>
       </div>
     </div>
     <div class="text-center">
