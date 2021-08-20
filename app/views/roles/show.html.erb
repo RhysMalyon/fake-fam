@@ -14,36 +14,29 @@
       <div class="user-bio mx-4">
         <small>Why I'm the <strong><%= @role.name %></strong> you need...</small>
         <p><%= @role.bio %></p>
-        <p>¥<%= number_with_delimiter(@role.price, :delimiter => ',') %></p>
+        <p>¥<%= number_with_delimiter(@role.price, :delimiter => ',') %>/hour</p>
       </div>
     </div>
     <div class="container booking-form mb-3">
       <%= render "/bookings/form", booking: @booking %>
     </div>
-    <h2>
-      <span id="reviews-count"><%= pluralize @role.reviews.size, "review" %></span>
-    </h2>
     <div data-controller="collapsible" data-height="150px">
       <button class="btn btn-warning" data-action="click->collapsible#expand">Leave a review</button>
       <div data-collapsible-target="form">
         <%= simple_form_for([ @role, @review ], remote: true) do |f| %>
           <%= f.input :content, as: :text, label: false %>
-          <%= f.button :submit, 'Submit', class: "btn btn-outline-warning" %>
+          <%= f.button :submit, 'Submit', class: "btn btn-outline-warning", id: "review-btn" %>
         <% end %>
       </div>
     </div>
-    <div id="reviews" data-controller="collapsible" data-height="unset">
-      <button data-action="click->collapsible#expand" class="btn btn-outline-secondary mt-5">Show reviews</button>
-      <div data-collapsible-target="form">
-        <% if @role.reviews.blank? %>
-          Be the first to leave a review for <%= @role.name %>
-        <% else %>
-          <% @role.reviews.order(created_at: :desc).each do |review| %>
-            <%= render review %>
-          <% end %>
+    <div id="reviews">
+      <% if @role.reviews.blank? %>
+        Be the first to leave a review for <%= @role.user.first_name %>
+      <% else %>
+        <% @role.reviews.order(created_at: :desc).each do |review| %>
+          <%= render review %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-</div>
 </div>
