@@ -12,10 +12,10 @@
       <div class="user-bio mx-3">
         <small>About Me</small>
         <p><%= @user.bio %></p>
-        <p><%= @user.age %></p>
+        <p><strong>Age:</strong> <%= @user.age %></p>
         <p><%= @user.gender %></p>
-        <p><%= @user.location %></p>
-        <%= link_to 'Edit profile', edit_user_path(@user) %>
+        <p><strong>Location:</strong> <%= @user.location %></p>
+        <p><%= link_to 'Edit profile', edit_user_path(@user) %></p>
       </div>
     </div>
 
@@ -36,9 +36,9 @@
                 </div>
               </div>
             <% end %>
-
           </div>
         </div>
       <% end %>
     </div>
 </div>
+
