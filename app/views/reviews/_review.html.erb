@@ -1,3 +1,4 @@
-<p class="p-5 text-center font-italic border-bottom m-0">
+<p id="review-<%= review.id %>" class="p-5 text-center font-italic border-bottom m-0">
   <i class="fas fa-quote-left"></i> <%= review.content %>
+  <i class="fa fa-quote-right"></i> - <%= review.user.first_name %>
 </p>
