@@ -1,2 +1,2 @@
+console.log("Hello");
 document.getElementById('reviews').insertAdjacentHTML('afterbegin', '<%=j render @review %>')
-document.getElementById('reviews-count').innerText = '<%= pluralize @role.reviews.count, "review" %>'
