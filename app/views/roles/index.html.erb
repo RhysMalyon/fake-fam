@@ -6,7 +6,11 @@
     <% @roles.each do |role| %>
       <%=link_to(role_path(role), class: "text-decoration-none") do %>
         <div class="card-trip mt-3">
-          <%= image_tag role.user.photo%>
+          <% if role.user.photo.attached? %>
+            <%= image_tag role.user.photo%>
+          <% else %>
+            <%= image_tag "placeholder-profile.png"%>
+          <% end %>
           <div class="card-trip-infos">
             <div>
               <h2><%= role.name.upcase %></h2>
