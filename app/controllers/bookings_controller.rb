@@ -20,7 +20,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render "roles/show"
+      flash[:booking_errors] = @booking.errors.full_messages
+      redirect_to role_path(@role)
     end
   end
 
