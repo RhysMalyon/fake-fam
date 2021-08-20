@@ -6,8 +6,7 @@ User.destroy_all
 
 puts "Creating Allen..."
 
-1.times do
-  user = User.create!(
+  allen = User.create!(
     first_name: "Kochapas",
     last_name: "Santibut",
     email: "allen@iknowprogramming.com",
@@ -16,8 +15,8 @@ puts "Creating Allen..."
     bio: "Challenge me to Codewars, I dare you.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/allen.jpg')), filename: 'allen.jpg', content_type: 'image/jpg')
-end
+  allen.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/allen.jpg')), filename: 'allen.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Allen..."
 
@@ -25,13 +24,13 @@ Role.create!(
   name: "boyfriend",
   price: rand(5000..10_000),
   bio: "I'm married so I know a lot about relationships.",
-  user: User.find(1)
+  user: allen
 )
 
 puts "Creating Anthony..."
 
-1.times do
-  user = User.create!(
+
+  anthony = User.create!(
     first_name: "Anthony",
     last_name: "Johnson",
     email: "aj@engineering.com",
@@ -40,8 +39,8 @@ puts "Creating Anthony..."
     bio: "I am from Australia, where is was working in Civil Engineering and Civil Construction. I moved to Japan in 2019 and began teaching English. I plan to change careers to Web Engineer.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/anthony.jpg')), filename: 'anthony.jpg', content_type: 'image/jpg')
-end
+  anthony.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/anthony.jpg')), filename: 'anthony.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Anthony..."
 
@@ -49,13 +48,13 @@ Role.create!(
   name: "dad",
   price: rand(5000..10_000),
   bio: "I'm like the dad of the group.",
-  user: User.find(2)
+  user: anthony
 )
 
 puts "Creating Cheri..."
 
-1.times do
-  user = User.create!(
+
+  cheri = User.create!(
     first_name: "Cheri",
     last_name: "Kennedy",
     email: "cheri@kiwidev.com",
@@ -64,8 +63,8 @@ puts "Creating Cheri..."
     bio: "I come from a media background in NZ, but for the past five years, I've been teaching English in Japan. I'm looking to change careers, and I'm excited to jump into the tech industry as a developer!",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/cheri.jpg')), filename: 'cheri.jpg', content_type: 'image/jpg')
-end
+  cheri.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/cheri.jpg')), filename: 'cheri.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Cheri..."
 
@@ -73,13 +72,13 @@ Role.create!(
   name: "sister",
   price: rand(5000..10_000),
   bio: "I have a sister so I know what I'm doing. Trust me.",
-  user: User.find(3)
+  user: cheri
 )
 
 puts "Creating Daniel..."
 
-1.times do
-  user = User.create!(
+
+  daniel = User.create!(
     first_name: "Daniel",
     last_name: "Rabottini",
     email: "dantheman@lifeonthebeach.com",
@@ -88,8 +87,8 @@ puts "Creating Daniel..."
     bio: "Hi everyone, my name is Daniel. I am currently living in Shizuoka, Japan. I have worked as a project manager in multiple industries, but I am hoping to transition my career to a more developmental role through the coding bootcamp. I have very minimal experience in coding. so this will be a very new thing for me. Looking forward to meeting everyone. ",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/daniel.jpg')), filename: 'daniel.jpg', content_type: 'image/jpg')
-end
+  daniel.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/daniel.jpg')), filename: 'daniel.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Daniel..."
 
@@ -97,13 +96,13 @@ Role.create!(
   name: "brother",
   price: rand(5000..10_000),
   bio: "Everyone calls me bro so I decided to embrace it.",
-  user: User.find(4)
+  user: daniel
 )
 
 puts "Creating Derek..."
 
-1.times do
-  user = User.create!(
+
+  derek = User.create!(
     first_name: "Derek",
     last_name: "Torres",
     email: "derek@socklover69.co.jp",
@@ -112,8 +111,8 @@ puts "Creating Derek..."
     bio: "Hey everyone! I'm from America and currently living in Tokyo. I was an English teacher for 3 and a half years and am excited to try to break into the tech world. I'd like to become a full stack developer one day. In my free time I like to run, play games, and study Japanese. Looking forward to getting to know you all.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/derek.jpg')), filename: 'derek.jpg', content_type: 'image/jpg')
-end
+  derek.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/derek.jpg')), filename: 'derek.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Derek..."
 
@@ -121,13 +120,13 @@ Role.create!(
   name: "boyfriend",
   price: rand(5000..10_000),
   bio: "I like skating and sniffing socks before I wash them.",
-  user: User.find(5)
+  user: derek
 )
 
 puts "Creating Jose..."
 
-1.times do
-  user = User.create!(
+
+  jose = User.create!(
     first_name: "Jose",
     last_name: "Miranda",
     email: "jose@lewagon.co.jp",
@@ -136,8 +135,8 @@ puts "Creating Jose..."
     bio: "Used to work as a Quality technician. Want to start a new career path within the IT industry and I hope to learn all the basics with this Lewagon program.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/jose.jpg')), filename: 'jose.jpg', content_type: 'image/jpg')
-end
+  jose.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/jose.jpg')), filename: 'jose.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Jose..."
 
@@ -145,13 +144,13 @@ Role.create!(
   name: "dad",
   price: rand(5000..10_000),
   bio: "I have a quiet determination that makes me trustworthy.",
-  user: User.find(6)
+  user: jose
 )
 
 puts "Creating Ope..."
 
-1.times do
-  user = User.create!(
+
+  ope = User.create!(
     first_name: "Opemipo",
     last_name: "Dada",
     email: "ope@theboss.co.jp",
@@ -160,8 +159,8 @@ puts "Creating Ope..."
     bio: "Hi everyone, my name is Ope. My career background is in sales/customer relations and logistics(warehousing) back in Nigeria. I joined le wagon because I am interested in web development and I am hoping to switch my career path to a tech-related role. After the Bootcamp, I plan to keep learning and developing the skills I would have gained, and hopefully get a job in the tech industry. ",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/ope.jpg')), filename: 'ope.jpg', content_type: 'image/jpg')
-end
+  ope.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/ope.jpg')), filename: 'ope.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Ope..."
 
@@ -169,13 +168,13 @@ Role.create!(
   name: "girlfriend",
   price: 50000,
   bio: "I'm expensive but worth every yen.",
-  user: User.find(7)
+  user: ope
 )
 
 puts "Creating Sae..."
 
-1.times do
-  user = User.create!(
+
+  sae = User.create!(
     first_name: "Sae",
     last_name: "Shikiji",
     email: "sae@design.co.jp",
@@ -184,8 +183,8 @@ puts "Creating Sae..."
     bio: "I am a university student in Tokyo, graduating in 2022! I am currently interning at a career advising company as a graphic designer and wanted to learn web development to gain more skills and open more possibilities.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/sae.jpg')), filename: 'sae.jpg', content_type: 'image/jpg')
-end
+  sae.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/sae.jpg')), filename: 'sae.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Sae..."
 
@@ -193,13 +192,13 @@ Role.create!(
   name: "mum",
   price: rand(5000..10_000),
   bio: "I've kept a tamagotchi alive for 20 years.",
-  user: User.find(8)
+  user: sae
 )
 
 puts "Creating Viddy..."
 
-1.times do
-  user = User.create!(
+
+  viddy = User.create!(
     first_name: "David",
     last_name: "Gregorato",
     email: "viddy@greggy.co.jp",
@@ -208,8 +207,8 @@ puts "Creating Viddy..."
     bio: "Trying to be a more convincing human... ",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/viddy.jpg')), filename: 'viddy.jpg', content_type: 'image/jpg')
-end
+  viddy.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/viddy.jpg')), filename: 'viddy.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Viddy..."
 
@@ -217,13 +216,13 @@ Role.create!(
   name: "boyfriend",
   price: 100000,
   bio: "My milkshake brings all the boys to the yard. It's an expensive milkshake.",
-  user: User.find(9)
+  user: viddy
 )
 
 puts "Creating Kevin..."
 
-1.times do
-  user = User.create!(
+
+  kevin = User.create!(
     first_name: "Kevin",
     last_name: "Konczak",
     email: "kevin@frontendguy.com",
@@ -232,8 +231,8 @@ puts "Creating Kevin..."
     bio: "Kevin, from France. Currently a web designer for a Japanese language school. I enrolled in Le Wagon to get more skills in development and build things for my company.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/kevin.jpg')), filename: 'kevin.jpg', content_type: 'image/jpg')
-end
+  kevin.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/kevin.jpg')), filename: 'kevin.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Kevin..."
 
@@ -241,13 +240,13 @@ Role.create!(
   name: "brother",
   price: rand(5000..10_000),
   bio: "I can make you a website at the same time. Trust me.",
-  user: User.find(10)
+  user: kevin
 )
 
 puts "Creating Doug..."
 
-1.times do
-  user = User.create!(
+
+  doug = User.create!(
     first_name: "Douglas",
     last_name: "Berkley",
     email: "doug@headhoncho.com",
@@ -256,8 +255,8 @@ puts "Creating Doug..."
     bio: "Hi I'm Doug and I like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/doug.jpg')), filename: 'doug.jpg', content_type: 'image/jpg')
-end
+  doug.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/doug.jpg')), filename: 'doug.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Doug..."
 
@@ -265,13 +264,13 @@ Role.create!(
   name: "boyfriend",
   price: rand(5000..10_000),
   bio: "'He's boyfriend material' - Cheri, 2021",
-  user: User.find(11)
+  user: doug
 )
 
 puts "Creating Trouni..."
 
-1.times do
-  user = User.create!(
+
+  trouni = User.create!(
     first_name: "Trouni",
     last_name: "Tiet",
     email: "trouni@frontendguy.com",
@@ -280,8 +279,8 @@ puts "Creating Trouni..."
     bio: "Hi I'm Trouni and I also like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/trouni.jpg')), filename: 'trouni.jpg', content_type: 'image/jpg')
-end
+  trouni.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/trouni.jpg')), filename: 'trouni.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Trouni..."
 
@@ -289,13 +288,13 @@ Role.create!(
   name: "boyfriend",
   price: rand(5000..10_000),
   bio: "Ay girl let me query your database.",
-  user: User.find(12)
+  user: trouni
 )
 
 puts "Creating Yann..."
 
-1.times do
-  user = User.create!(
+
+  yann = User.create!(
     first_name: "Yann",
     last_name: "Klein",
     email: "yann@ilovejavascript.com",
@@ -304,8 +303,8 @@ puts "Creating Yann..."
     bio: "Hi I'm Yann and I also like to teach.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/yann.jpg')), filename: 'yann.jpg', content_type: 'image/jpg')
-end
+  yann.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/yann.jpg')), filename: 'yann.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Yann..."
 
@@ -313,13 +312,13 @@ Role.create!(
   name: "brother",
   price: rand(5000..10_000),
   bio: "I'll give special care to your front end",
-  user: User.find(13)
+  user: yann
 )
 
 puts "Creating Sylvain..."
 
-1.times do
-  user = User.create!(
+
+  sylvain = User.create!(
     first_name: "Sylvain",
     last_name: "Pierre",
     email: "sylvain@lewagon.com",
@@ -328,8 +327,8 @@ puts "Creating Sylvain..."
     bio: "Hi I'm Sylvain and I run the show.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/sylvain.jpg')), filename: 'sylvain.jpg', content_type: 'image/jpg')
-end
+  sylvain.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/sylvain.jpg')), filename: 'sylvain.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Sylvain..."
 
@@ -337,13 +336,13 @@ Role.create!(
   name: "dad",
   price: rand(5000..10_000),
   bio: "Let me impact your hub..",
-  user: User.find(14)
+  user: sylvain
 )
 
 puts "Creating Noemi..."
 
-1.times do
-  user = User.create!(
+
+  noemi = User.create!(
     first_name: "Noemi",
     last_name: "Ashizuka",
     email: "noemi@topta.co.jp",
@@ -352,8 +351,8 @@ puts "Creating Noemi..."
     bio: "Hi nice to meet you let me help you out.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/noemi.jpg')), filename: 'noemi.jpg', content_type: 'image/jpg')
-end
+  noemi.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/noemi.jpg')), filename: 'noemi.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Noemi..."
 
@@ -361,13 +360,13 @@ Role.create!(
   name: "mum",
   price: rand(5000..10_000),
   bio: "Keen to help",
-  user: User.find(15)
+  user: noemi
 )
 
 puts "Creating Charlotte..."
 
-1.times do
-  user = User.create!(
+
+  charlotte = User.create!(
     first_name: "Charlotte",
     last_name: "Demaret",
     email: "charlotte@sorryimfrench.co.jp",
@@ -376,8 +375,8 @@ puts "Creating Charlotte..."
     bio: "Hi nice to meet you let me help you out.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/charlotte.jpg')), filename: 'charlotte.jpg', content_type: 'image/jpg')
-end
+  charlotte.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/charlotte.jpg')), filename: 'charlotte.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Charlotte..."
 
@@ -385,13 +384,13 @@ Role.create!(
   name: "sister",
   price: rand(5000..10_000),
   bio: "Keen to help",
-  user: User.find(16)
+  user: charlotte
 )
 
 puts "Creating Lena..."
 
-1.times do
-  user = User.create!(
+
+  lena = User.create!(
     first_name: "Lena",
     last_name: "Namiki",
     email: "lena@thenewgirl.co.jp",
@@ -400,8 +399,8 @@ puts "Creating Lena..."
     bio: "I have been working in Marketing for the past 4 years. I have always been interested in learning coding and decided to join Le Wagon to obtain a new hard skill set that can help me with a career change.",
     location: Faker::Address.city
   )
-  user.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/lena.jpg')), filename: 'lena.jpg', content_type: 'image/jpg')
-end
+  lena.photo.attach(io: File.open(File.join(Rails.root,'app/assets/images/seeds/lena.jpg')), filename: 'lena.jpg', content_type: 'image/jpg')
+
 
 puts "Adding role to Lena..."
 
@@ -409,5 +408,5 @@ Role.create!(
   name: "girlfriend",
   price: rand(5000..10_000),
   bio: "Keen to help",
-  user: User.find(17)
+  user: lena
 )
