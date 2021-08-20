@@ -9,10 +9,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="form-inline mr-3">
-          <%= link_to "Bookings", bookings_path, class:"text-decoration-none white-color" %>
+          <%= link_to "Bookings", bookings_path, class:"text-decoration-none white-color navi-link" %>
         </li>
         <li class="form-inline mr-3">
-          <%= link_to "Roles", roles_path, class:"text-decoration-none white-color" %>
+          <%= link_to "Roles", roles_path, class:"text-decoration-none white-color navi-link" %>
+        </li>
+        <li class="form-inline mr-3">
+          <%= link_to "Become a family member", new_role_path, class: "text-decoration-none white-color navi-link font-weight-bold" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
@@ -22,7 +25,6 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Become a family member", new_role_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
