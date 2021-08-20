@@ -15,11 +15,13 @@
         <p><strong>Age:</strong> <%= @user.age %></p>
         <p><%= @user.gender %></p>
         <p><strong>Location:</strong> <%= @user.location %></p>
-        <p><%= link_to 'Edit profile', edit_user_path(@user) %></p>
+        <% if current_user == @user %>
+          <p><%= link_to 'Edit profile', edit_user_path(@user) %></p>
+        <% end %>
       </div>
     </div>
     <div class="text-center">
-      <% if current_user.roles.present? %>
+      <% if current_user.roles.any? %>
         <h2>My roles</h2>
       </div>
       <div class="container d-flex text-center justify-content-center">
