@@ -10,17 +10,17 @@
       <% if user_signed_in?  %>
         <% if current_user.roles.any? %>
           <li class="form-inline mr-3">
-            <%= link_to "Clients", owner_bookings_path, class:"text-decoration-none white-color" %>
+            <%= link_to "Clients", owner_bookings_path, class:"text-decoration-none navi-link" %>
           </li>
         <% end %>
         <li class="form-inline mr-3">
-          <%= link_to "Bookings", bookings_path, class:"text-decoration-none white-color navi-link" %>
+          <%= link_to "Bookings", bookings_path, class:"text-decoration-none navi-link" %>
         </li>
         <li class="form-inline mr-3">
-          <%= link_to "Roles", roles_path, class:"text-decoration-none white-color navi-link" %>
+          <%= link_to "Roles", roles_path, class:"text-decoration-none navi-link" %>
         </li>
         <li class="form-inline mr-3">
-          <%= link_to "Become a family member", new_role_path, class: "text-decoration-none white-color navi-link font-weight-bold" %>
+          <%= link_to "Become a family member", new_role_path, class: "text-decoration-none navi-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
