@@ -24,10 +24,15 @@
 .navi-link {
   opacity: 0.7;
   color: white;
-  transition: 0.2s ease-in-out;
+  // transition: 0.2s ease-in-out;
 
   &:hover {
     opacity: 1;
     color: white;
   }
+}
+
+.navbar .active {
+  border-bottom: 2px solid white;
+  color: white;
 }
