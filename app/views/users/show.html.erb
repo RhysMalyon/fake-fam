@@ -20,7 +20,6 @@
         <% end %>
       </div>
     </div>
-
     <div class="text-center">
       <% if current_user.roles.any? %>
         <h2>My roles</h2>
@@ -35,11 +34,14 @@
                     <p><i class="fas fa-tags"></i> ¥<%= number_with_delimiter(role.price, :delimiter => ',') %></p>
                     <%= link_to ("<span>Book me</span>").html_safe, role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
                   </div>
+                </div>
+              </div>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
+</div>
+</div>
 <%# Made change %>
