@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2021_08_20_031134) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
-    t.bigint "roles_id", null: false
+    t.bigint "role_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["roles_id"], name: "index_reviews_on_roles_id"
+    t.index ["role_id"], name: "index_reviews_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -89,6 +89,6 @@ ActiveRecord::Schema.define(version: 2021_08_20_031134) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "roles"
   add_foreign_key "bookings", "users"
-  add_foreign_key "reviews", "roles", column: "roles_id"
+  add_foreign_key "reviews", "roles"
   add_foreign_key "roles", "users"
 end
