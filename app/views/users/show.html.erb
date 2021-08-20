@@ -21,17 +21,18 @@
       <h2>My roles</h2>
     </div>
     <div class="container d-flex text-center justify-content-center">
-      <div class="mx-3 p-4">
-        <div class="card-role">
+      <div class="card-roles">
           <% @user.roles.each do |role| %>
+            <div class="card-role">
             <%= image_tag "#{role.name}.jpg", class: "role-photo"%>
-            <div class="role-bio mt-4">
+              <div class="role-bio mt-4">
               <p><i class="fas fa-user-tag"></i> <%= role.name.capitalize %></p>
               <p><i class="fas fa-tags"></i> ¥<%= role.price %></p>
-              <%= link_to ("<span>Book me</span>").html_safe, role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
+              <%# <%= link_to ("<span>Book me</span>").html_safe, role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
+              </div>
+              <%= link_to '', role_path(role), class: 'card-link' %>
             </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>
