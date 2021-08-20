@@ -12,10 +12,10 @@
       <div class="user-bio mx-3">
         <small>About Me</small>
         <p><%= @user.bio %></p>
-        <p><%= @user.age %></p>
+        <p><strong>Age:</strong> <%= @user.age %></p>
         <p><%= @user.gender %></p>
-        <p><%= @user.location %></p>
-        <%= link_to 'Edit profile', edit_user_path(@user) %>
+        <p><strong>Location:</strong> <%= @user.location %></p>
+        <p><%= link_to 'Edit profile', edit_user_path(@user) %></p>
       </div>
     </div>
     <div class="text-center">
@@ -33,9 +33,8 @@
                 <%= link_to ("<span>Book me</span>").html_safe, role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
               </div>
             <% end %>
-
           <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
