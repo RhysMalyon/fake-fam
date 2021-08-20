@@ -20,6 +20,9 @@
     <div class="container booking-form">
       <%= render "/bookings/form", booking: @booking %>
     </div>
+    <%= simple_form_for([ @role, @review ]) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.button :submit %>
+    <% end %>
   </div>
 </div>
-
