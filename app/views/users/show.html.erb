@@ -19,26 +19,26 @@
       </div>
     </div>
 
-    <div class="text-center">
-      <% if current_user.roles.present? %>
-        <h2>My roles</h2>
-        <div class="container">
-          <div class="m-3 p-4 d-flex flex-wrap justify-content-center">
-            <% @user.roles.each do |role| %>
-              <div class="card-role mt-4">
-                <%= image_tag "#{role.name}.jpg", class: "role-photo"%>
-                <div>
-                  <div class="role-bio mt-4">
-                    <p><i class="fas fa-user-tag"></i> <%= role.name.capitalize %></p>
-                    <p><i class="fas fa-tags"></i> ¥<%= number_with_delimiter(role.price, :delimiter => ',') %></p>
-                    <%= link_to "Book me", role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
-                  </div>
+  <div class="text-center">
+    <% if current_user.roles.present? %>
+      <h2>My roles</h2>
+      <div class="container">
+        <div class="m-3 p-4 d-flex flex-wrap justify-content-center">
+          <% @user.roles.each do |role| %>
+            <div class="card-role mt-4">
+              <%= image_tag "#{role.name}.jpg", class: "role-photo"%>
+              <div>
+                <div class="role-bio mt-4">
+                  <p><i class="fas fa-user-tag"></i> <%= role.name.capitalize %></p>
+                  <p><i class="fas fa-tags"></i> ¥<%= number_with_delimiter(role.price, :delimiter => ',') %></p>
+                  <%= link_to "Book me", role_path(@user), class: "btn btn-warning mt-4 rounded-pill btn-flat justify-content-center", style: "box-shadow: 2px 2px 4px rgba(10,10,10,0.3); position: relative; left: 8px;" %>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
