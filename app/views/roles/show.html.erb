@@ -12,7 +12,7 @@
         <% end %>
       </div>
       <div class="user-bio mx-4">
-        <small>About Me</small>
+        <small>Why I'm the <strong><%= @role.name %></strong> you need...</small>
         <p><%= @role.bio %></p>
         <p>¥<%= number_with_delimiter(@role.price, :delimiter => ',') %></p>
       </div>
