@@ -6,7 +6,6 @@
   }
 
 .circle {
-  background-color: $orange;
   border-radius: 50%;
   width: 56px;
   height: 56px;
@@ -20,6 +19,17 @@
   p {
     margin: 0;
   }
+  &.approved {
+    background-color: $green;
+  }
+  &.pending {
+    background-color: $orange;
+  }
+  &.declined {
+    background-color: $red;
+  }
+
+
 
 }
 
