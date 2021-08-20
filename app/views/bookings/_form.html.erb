@@ -3,9 +3,9 @@
   wrapper_mappings: {
     boolean: :inline_boolean
   } do |f| %>
-  <%= f.input :start_time, label: 'Start time', as: :string, input_html: {class: "datepicker"} %>
-  <%= f.input :end_time, label: 'Finish time', as: :string, input_html: {class: "datepicker"} %>
-  <%= f.input :location, label: 'Location' %>
-  <%= f.input :category, label: 'Event' %>
-  <%= f.button :submit, value: "Book me", class: "btn-primary col-xs-12 col-sm-12 col-md-12 col-lg-6" %>
+  <%= f.input :start_time, required: true, label: 'Start Date/Time', as: :string, input_html: {class: "datepicker"} %>
+  <%= f.input :end_time, required: true, label: 'Finish Date/Time', as: :string, input_html: {class: "datepicker"} %>
+  <%= f.input :location, required: true, label: 'Location' %>
+  <%= f.input :category, required: true, label: 'Event' %>
+  <%= f.submit "Book Me", class: "btn-warning col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 rounded-pill", style: "font-weight: bold; font-size: 20px;" %>
 <% end %>

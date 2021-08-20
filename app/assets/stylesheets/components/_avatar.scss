@@ -1,7 +1,14 @@
 .avatar {
-  width: 40px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
   border-radius: 50%;
   border: 2px solid white;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 .avatar-large {
   width: 56px;
