@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :roles, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
+    resources :reviews, only: :create
   end
   resources :bookings, only: %i[index update]
   resources :users, only: %i[show edit update]
